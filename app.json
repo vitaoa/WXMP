@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/dictionary/dictionary",
     "pages/logs/logs"
   ],
   "window":{
@@ -8,5 +9,6 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
-  }
+  },
+  "debug":true
 }

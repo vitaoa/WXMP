@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    baiduMapKey:'68E03ff094b4aedd5cb289c21516904b'
   }
 })

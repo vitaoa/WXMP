@@ -19,3 +19,14 @@
 .usermotto {
   margin-top: 200px;
 }
+.thisCityName {
+  display: inline-block;
+  border: 1rpx solid #2a579a;
+  border-radius: 8rpx;
+  padding: 10rpx 10rpx;
+  font-size: 30rpx;
+  color: #2a579a;
+  text-align: center;
+  min-width: 149.5rpx;
+  margin: 16rpx;
+}
