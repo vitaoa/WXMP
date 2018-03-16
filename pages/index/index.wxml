@@ -11,13 +11,32 @@
         <text class="user-motto">{{motto}}</text>
     </view> -->
     <view class='page__hd' id="dif_map">
+
+        <view class="weatherwrap" bindtap='gotoWeather'>
+            <!--显示当天的天气信息-->
+            <view class="info">
+                <!--城市名称 当前日期-->
+                <view class="city">{{location}} ({{today}})</view>
+                <!--当天温度-->
+                <view class="temp">{{weatherData.tmp}}℃</view>
+                <!--其他描述-->
+                <view class="weather">
+                    <view>{{weatherData.cond_txt}}</view>
+                    <view>{{weatherData.wind_dir}}</view>
+                    <view>{{weatherData.wind_sc}}</view>
+                    <view>PM2.5: {{air.pm25}}</view>
+                    <view>{{air.qlty}}</view>
+                </view>
+                <view class="life" style='text-indent:1em;'>{{dress.txt}}</view>
+            </view>
+        </view>
         <view class='page__ft'>
             <text class='weui-label'>当前位置: </text>
-            <text class='weui-badge' wx:if="{{hasLocation===true}}">{{currentCity}}</text>
+            <text class='weui-badge' wx:if="{{hasLocation===true}}">{{city}}{{district}}{{streetInfo}}</text>
         </view>
 
         <view>
-            <button type="primary" class='weui-btn' bindtap="getLocation">获取位置</button>
+            <button type="primary" class='weui-btn'  bindtap="changePosition">更改位置</button>
         </view>
     </view>
 

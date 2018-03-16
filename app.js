@@ -35,6 +35,12 @@ App({
   },
   globalData: {
     userInfo: null,
-    baiduMapKey:'68E03ff094b4aedd5cb289c21516904b'
+    defaultCity: '',
+    defaultCounty: '',
+    baiduMapKey: '68E03ff094b4aedd5cb289c21516904b',
+    heWeatherBase: "https://free-api.heweather.com",
+    heWeatherKey: "4a817b4338e04cc59bdb92da7771411e",
+    tencentMapKey: "4HYBZ-EB23D-SLC42-HQ5R3-LP3LQ-OZFU5",
+    day: '',
   }
 })

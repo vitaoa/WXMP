@@ -1,14 +1,15 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/dictionary/dictionary",
-    "pages/logs/logs"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  },
-  "debug":true
+    "pages": [
+        "pages/index/index",
+        "pages/dictionary/dictionary",
+        "pages/logs/logs",
+        "pages/switchcity/switchcity"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "debug": true
 }
