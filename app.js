@@ -36,7 +36,7 @@ App({
   globalData: {
     userInfo: null,
     defaultCity: '',
-    defaultCounty: '',
+    defaultDistrict: '',
     baiduMapKey: '68E03ff094b4aedd5cb289c21516904b',
     heWeatherBase: "https://free-api.heweather.com",
     heWeatherKey: "4a817b4338e04cc59bdb92da7771411e",

@@ -1,6 +1,6 @@
 
 const city = require('../../utils/city.js');
-const area = require('../../utils/area.js');
+
 const app = getApp();
 
 Page({
@@ -23,7 +23,7 @@ Page({
         countyList: [{ cityCode: 110000, county: 'A区' }, { cityCode: 310000, county: 'B区' }, { cityCode: 440100, county: 'C区' }, { cityCode: 440300, county: 'D区' }, { cityCode: 330100, county: 'E县' }, { cityCode: 320100, county: 'F县' }, { cityCode: 420100, county: 'G县' }],
         inputName: '',
         completeList: [],
-        county: '',
+        district: '',
         condition: false,
     },
 
@@ -68,14 +68,14 @@ Page({
         })
         this.selectCounty() //获取当前城市的区名称
         app.globalData.defaultCity = this.data.city
-        app.globalData.defaultCounty = ''
+        app.globalData.defaultDistrict = ''
     },
     //设置当前区域
     bindCounty: function (e){
         this.setData({ 
-            county: e.currentTarget.dataset.city 
+            district: e.currentTarget.dataset.city 
         })
-        app.globalData.defaultCounty = this.data.county
+        app.globalData.defaultDistrict = this.data.district
         wx.redirectTo({
             url: '../index/index'
         })
@@ -83,7 +83,7 @@ Page({
     //定位当前城市的函数
     getLocation: function () {
         this.setData({
-            county: ''
+            district: ''
         })
         const that = this;
         wx.getLocation({
@@ -99,7 +99,7 @@ Page({
                         that.setData({
                             city: res.data.result.addressComponent.city,
                             currentCityCode: res.data.result.addressComponent.adcode,
-                            county: res.data.result.addressComponent.district
+                            district: res.data.result.addressComponent.district
                         })
                     }
                 })
@@ -175,7 +175,8 @@ Page({
     //重新定位城市
     reGetLocation: function () {
         app.globalData.defaultCity = this.data.city
-        app.globalData.defaultCounty = this.data.county
+        app.globalData.defaultDistrict = this.data.district
+        console.log(app.globalData)
         //返回首页
         wx.redirectTo({
             url: '/pages/index/index',

@@ -15,7 +15,7 @@ Page({
         longitude: "",
         markers: [],
         circles: [],
-        location: '',
+       // location: '',
         city: '',
         district: '',
         streetInfo: '',
@@ -36,7 +36,7 @@ Page({
         });
         //定位当前城市
         _this.getLocation();
-        console.log(_this.data);
+     //   console.log(_this.data);
         if (app.globalData.userInfo) {
             this.setData({
                 userInfo: app.globalData.userInfo,
@@ -65,7 +65,7 @@ Page({
         };
         wx.getSystemInfo({
             success: function (res) {
-                console.log(res);
+               // console.log(res);
                 var jquery = wx.createSelectorQuery().select("#dif_map").boundingClientRect();
                 jquery.exec(function (e) {
                     _this.setData({
@@ -91,7 +91,7 @@ Page({
         wx.getLocation({
             type: 'wgs84',
             success: function (res) {
-                console.log(res);
+              //  console.log(res);
                 //当前的经度和纬度
                 _this.setData({
                     latitude: res.latitude,
@@ -123,17 +123,13 @@ Page({
                     },
                     success: function (res) {
                         console.log("==============");
-                        console.log(res);
-                        _this.setData({
-                            city: res.data.result.addressComponent.city,
-                            district: res.data.result.addressComponent.district,
-                            streetInfo: res.data.result.addressComponent.street + res.data.result.addressComponent.street_number,
-                        })
+                        console.log(res);               
                         app.globalData.defaultCity = app.globalData.defaultCity ? app.globalData.defaultCity : res.data.result.addressComponent.city;
-                        app.globalData.defaultCounty = app.globalData.defaultCounty ? app.globalData.defaultCounty : res.data.result.addressComponent.country;
+                        app.globalData.defaultDistrict = app.globalData.defaultDistrict ? app.globalData.defaultDistrict : res.data.result.addressComponent.district;
                         _this.setData({
-                            location: app.globalData.defaultCity,
-                            county: app.globalData.defaultCounty
+                            city: app.globalData.defaultCity,
+                            district: app.globalData.defaultDistrict,
+                            streetInfo: res.data.result.addressComponent.street + res.data.result.addressComponent.street_number,
                         });
                         _this.getWeather();
                         _this.getAir();
@@ -149,9 +145,8 @@ Page({
     },
     //获取天气
     getWeather: function (e) {
-        var length = this.data.location.length;
-        var city = this.data.location.slice(0, length - 1); //分割字符串
-        console.log(city);
+        var length = this.data.city.length;
+        var city = this.data.city.slice(0, length - 1); //分割字符串
         var that = this;
         var param = {
             key: app.globalData.heWeatherKey,
@@ -177,8 +172,8 @@ Page({
     },
     //获取当前空气质量情况
     getAir: function (e) {
-        var length = this.data.location.length;
-        var city = this.data.location.slice(0, length - 1);
+        var length = this.data.city.length;
+        var city = this.data.city.slice(0, length - 1);
         var that = this;
         var param = {
             key: app.globalData.heWeatherKey,

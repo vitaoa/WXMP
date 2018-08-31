@@ -16,7 +16,7 @@
             <!--显示当天的天气信息-->
             <view class="info">
                 <!--城市名称 当前日期-->
-                <view class="city">{{location}} ({{today}})</view>
+                <view class="city">{{city}} ({{today}})</view>
                 <!--当天温度-->
                 <view class="temp">{{weatherData.tmp}}℃</view>
                 <!--其他描述-->
@@ -32,7 +32,7 @@
         </view>
         <view class='page__ft'>
             <text class='weui-label'>当前位置: </text>
-            <text class='weui-badge' wx:if="{{hasLocation===true}}">{{city}}{{district}}{{streetInfo}}</text>
+            <text class='weui-badge' wx:if="{{hasLocation===true}}">{{city}}{{district}}</text>
         </view>
 
         <view>
